@@ -157,7 +157,8 @@ public class IfElseStatementTheme {
         System.out.println("Прибыль за год: " + (profit - rent - cost) * 12);
 
         System.out.println("\n9. Подсчет количества банкнот");
-        int cash = 567; // требуемая сумма
+        // требуемая сумма
+        int cash = 567;
         // количество банкнот банкомате  номиналом 1, 10, 100
         int availBanknote1 = 100_000; 
         int availBanknote10 = 5;
