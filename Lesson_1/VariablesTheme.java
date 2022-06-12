@@ -4,7 +4,7 @@ public class VariablesTheme {
         byte hardDriveCount = 2;
         short osEdition = 10;
         int osVersion = 1607;
-        long memoryRAM = 16777216;
+        long memory = 16777216;
         float coreSpeed = 3.3f;
         double calculatorVersion = 10.1705;
         char backupDrive = 'F';
@@ -12,7 +12,7 @@ public class VariablesTheme {
         System.out.println("byte hardDriveCount = " + hardDriveCount);
         System.out.println("short osEdition = " + osEdition);
         System.out.println("int osVersion = " + osVersion);
-        System.out.println("long memoryRAM = " + memoryRAM);
+        System.out.println("long memory = " + memory);
         System.out.println("float coreSpeed = " + coreSpeed);
         System.out.println("double calculatorVersion = " + calculatorVersion);
         System.out.println("char backupDrive = " + backupDrive);
@@ -24,7 +24,7 @@ public class VariablesTheme {
         int discount = 11;
         System.out.println("Сумма скидки: " + (priceGoodsX + priceGoodsY) * discount / 100);
         System.out.println("Общая стоимость товаров со скидкой: " + (priceGoodsX + priceGoodsY) * 
-            (100 - discount) / 100);
+                (100 - discount) / 100);
 
         System.out.println("\n3. Вывод на консоль слова JAVA");
         System.out.println("   J    a  v     v  a    ");
@@ -39,20 +39,20 @@ public class VariablesTheme {
         long longNumber = Long.MAX_VALUE;
         
         System.out.println("\nПервоначальное значение для переменной типа Byte: " + byteNumber);
-        System.out.println("Инкрементирование значение для переменной типа Byte: " + byteNumber++);
-        System.out.println("Декрементированное значение для переменной типа Byte: " + byteNumber--);
+        System.out.println("Инкрементирование значение для переменной типа Byte: " + ++byteNumber);
+        System.out.println("Декрементированное значение для переменной типа Byte: " + --byteNumber);
 
         System.out.println("\nПервоначальное значение для переменной типа Short: " + shortNumber);
-        System.out.println("Инкрементирование значение для переменной типа Short: " + shortNumber++);
-        System.out.println("Декрементированное значение для переменной типа Short: " + shortNumber--);
+        System.out.println("Инкрементирование значение для переменной типа Short: " + ++shortNumber);
+        System.out.println("Декрементированное значение для переменной типа Short: " + --shortNumber);
 
         System.out.println("\nПервоначальное значение для переменной типа Int: " + intNumber);
-        System.out.println("Инкрементирование значение для переменной типа Int: " + intNumber++);
-        System.out.println("Декрементированное значение для переменной типа Int: " + intNumber--);
+        System.out.println("Инкрементирование значение для переменной типа Int: " + ++intNumber);
+        System.out.println("Декрементированное значение для переменной типа Int: " + --intNumber);
 
         System.out.println("\nПервоначальное значение для переменной типа Long: " + longNumber);
-        System.out.println("Инкрементирование значение для переменной типа Long: " + longNumber++);
-        System.out.println("Декрементированное значение для переменной типа Long: " + longNumber--);
+        System.out.println("Инкрементирование значение для переменной типа Long: " + ++longNumber);
+        System.out.println("Декрементированное значение для переменной типа Long: " + --longNumber);
 
         System.out.println("\n5. Перестановка значений переменных");
         double number1 = 1.1;
@@ -118,10 +118,10 @@ public class VariablesTheme {
         System.out.println(space + space + space + space + slash + backslash);
         System.out.println(space + space + space + slash + space + space + backslash);
         System.out.println(space + space + slash + underline + bracketOpen + space + bracketClose +
-                            backslash);
+                backslash);
         System.out.println(space + slash + space + space + space + space + space + space + backslash);
         System.out.println(slash + underline + underline + underline + underline + slash +
-                            backslash + underline + underline + backslash);
+                backslash + underline + underline + backslash);
         */
 
         // через Char
@@ -134,10 +134,10 @@ public class VariablesTheme {
         System.out.println("" + space + space + space + space + slash + backslash);
         System.out.println("" + space + space + space + slash + space + space + backslash);
         System.out.println("" + space + space + slash + underline + bracketOpen + space + bracketClose +
-                            backslash);
+                backslash);
         System.out.println("" + space + slash + space + space + space + space + space + space + backslash);
         System.out.println("" + slash + underline + underline + underline + underline + slash +
-                            backslash + underline + underline + backslash);
+                backslash + underline + underline + backslash);
 
         System.out.println("\n9. Отображение количества сотен, десятков и единиц числа");
         srcNumber = 123;
