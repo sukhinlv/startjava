@@ -119,7 +119,7 @@ public class IfElseStatementTheme {
 
         System.out.println("\n6. Определение суммы вклада и начисленных банком %");
         int deposit = 300_000;
-        int percent;
+        int percent = 0;
         if (deposit < 100_000) {
             percent = 5;
         } else if (deposit >= 100_000 && deposit <= 300_000) {
@@ -167,7 +167,7 @@ public class IfElseStatementTheme {
         int issueBanknote10;
         int issueBanknote100;
         boolean insufficientBanknotes = false;
-        
+
         /*
             ○   проведите обратный расчет начальной суммы по полученному количеству банкнот, чтобы убедиться в правильности вычислений
             ○   если каких-то банкнот не хватает, то их нужно заменить банкнотами другого номинала
