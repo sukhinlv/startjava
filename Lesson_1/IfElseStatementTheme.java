@@ -43,49 +43,56 @@ public class IfElseStatementTheme {
         }
 
         System.out.println("\n3. Работа с числом");
-        int someNumber = -53323;
-        System.out.println("Число = " + someNumber);
-        if (someNumber != 0) {
-            if (someNumber % 2 == 0) {
+        int srcNumber = -53323;
+        if (srcNumber != 0) {
+            if (srcNumber % 2 == 0) {
                 System.out.println("\tчетное");
             } else {
                 System.out.println("\tнечетное");
             }
 
-            if (someNumber > 0) {
+            if (srcNumber > 0) {
                 System.out.println("\tположительное");
             } else {
                 System.out.println("\tотрицательное");
             }
         } else {
-            System.out.println("\tдля 0 проверка не проводится");
+            System.out.println("исходное число = 0");
         }
 
         System.out.println("\n4. Поиск одинаковых цифр в числах");
         number1 = 463;
         number2 = 263;
-        String strNumber1 = Integer.toString(number1);
-        String strNumber2 = Integer.toString(number2);
-        boolean matchDigit1 = strNumber1.charAt(0) == strNumber2.charAt(0);
-        boolean matchDigit2 = strNumber1.charAt(1) == strNumber2.charAt(1);
-        boolean matchDigit3 = strNumber1.charAt(2) == strNumber2.charAt(2);
+        boolean matchDigit1 = (number1 / 100) == (number2 / 100);
+        boolean matchDigit2 = (number1 % 100 / 10) == (number2 % 100 / 10);
+        boolean matchDigit3 = (number1 % 10) == (number2 % 10);
+        // проверяем есть ли хоть одна одинаковая цифра
         if (!matchDigit1 && !matchDigit2 && !matchDigit3) {
-            System.out.print("В числах " + strNumber1 + " и " + strNumber2 + 
+            System.out.print("В числах " + number1 + " и " + number2 + 
                 " нет одинаковых цифр в соответствующих разрядах");
         } else {
-            System.out.print("В числах " + strNumber1 + " и " + strNumber2 + " одинаковые цифры ");
+            System.out.print("В числах " + number1 + " и " + number2 + " одинаковые цифры ");
+            /*
+                отобразите результат в формате:
+                в числах N и M одинаковые цифры A, B, C стоят в разрядах X, Y, Z
+            */
+            // формируем первую часть вывода: "в числах N и M одинаковые цифры A, B, C стоят в разрядах "
             if (matchDigit1) {
-                System.out.print(strNumber1.charAt(0));
+                // выводим число
+                System.out.print(number1 / 100);
+                // проверяем, есть ли еще совпадения и если есть, то дополнительно выводим запятую
                 if (matchDigit2 || matchDigit3) System.out.print(", ");
             }
             if (matchDigit2) {
-                System.out.print(strNumber1.charAt(1));
+                System.out.print(number1 % 100 / 10);
                 if (matchDigit3) System.out.print(", ");
             }
             if (matchDigit3) {
-                System.out.print(strNumber1.charAt(2));
+                System.out.print(number1 % 10);
             }
             System.out.print(" стоят в разрядах ");
+
+            // формируем вторую часть вывода: "X, Y, Z" 
             if (matchDigit1) {
                 System.out.print("сотни");
                 if (matchDigit2 || matchDigit3) System.out.print(", ");
@@ -98,20 +105,17 @@ public class IfElseStatementTheme {
                 System.out.print("единицы");
             }
         }
-        System.out.println("");
 
-        System.out.println("\n5. Определение буквы, числа или символа по их коду");
-        char someChar = '\u0057';
-        int charNumericValue = someChar;
-        System.out.println("someChar = \'\\u0057\'");
+        System.out.println("\n\n5. Определение буквы, числа или символа по их коду");
+        char someChar = '\u0057'; // W
+        System.out.println("числовое значение символа: " + (short) someChar);
         System.out.println("символ в таблице ASCII: " + someChar);
-        System.out.println("числовое значение символа: " + charNumericValue);
         
-        if (charNumericValue >= 65 && charNumericValue <= 90) {
+        if (someChar >= 65 && someChar <= 90) {
             System.out.println("большая буква");
-        } else if (charNumericValue >= 97 && charNumericValue <= 122) {
+        } else if (someChar >= 97 && someChar <= 122) {
             System.out.println("маленькая буква");
-        } else if (charNumericValue >= 48 && charNumericValue <= 57) {
+        } else if (someChar >= 48 && someChar <= 57) {
             System.out.println("это число");
         } else {
             System.out.println("не буква и не число");
@@ -154,7 +158,12 @@ public class IfElseStatementTheme {
         int rent = 5000;
         int profit = 13000;
         int cost = 9000;
-        System.out.println("Прибыль за год: " + (profit - rent - cost) * 12);
+        int yearProfit = (profit - rent - cost) * 12;
+        if (yearProfit > 0) {
+            System.out.println("Прибыль за год: +" + yearProfit);
+        } else {
+            System.out.println("Прибыль за год: " + yearProfit);
+        }
 
         System.out.println("\n9. Подсчет количества банкнот");
         // требуемая сумма
