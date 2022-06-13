@@ -205,7 +205,7 @@ public class IfElseStatementTheme {
         System.out.println("Запрощенная сумма: " + cash);
         if (!insufficientBanknotes) {
             int controlCash = issueBanknote100 * 100 + issueBanknote10 * 10 + issueBanknote1;
-            if ( controlCash == cash) {
+            if (controlCash == cash) {
                 System.out.println("Правильность вычислений проверена");
             } else {
                 System.out.println("ВЫЧИСЛЕНИЯ СОДЕРЖАТ ОШИБКУ!");
