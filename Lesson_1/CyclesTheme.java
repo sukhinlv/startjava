@@ -52,16 +52,15 @@ public class CyclesTheme {
         System.out.format("%nсумма цифр числа: %d%n", sumDigits);
 
         System.out.println("\n4. Вывод чисел [1, 24) на консоль в несколько строк");
-        int digitInLine = 5;
+        int counter = 0;
         for (int i = 1; i < 24; i += 2) {
             System.out.format("\t" + "%2d", i);
-            digitInLine--;
-            if (digitInLine == 0) {
-                digitInLine = 5;
+            counter++;
+            if (counter % 5 == 0) {
                 System.out.print("\n");
             }
         }
-        for (int i = 5; i >= digitInLine; i--) {
+        for (int i = 1; i <= (5 - counter % 5); i++) {
             System.out.print("\t 0");
         }
 
@@ -97,7 +96,7 @@ public class CyclesTheme {
 
         // отображаем фигуру из #
         int lineCounter = 5;
-        int counter = 0;
+        counter = 0;
         while (lineCounter > 0) {
             counter = lineCounter;
             while (counter > 0) {
