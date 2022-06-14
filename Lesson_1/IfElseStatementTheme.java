@@ -72,37 +72,14 @@ public class IfElseStatementTheme {
                 " нет одинаковых цифр в соответствующих разрядах");
         } else {
             System.out.print("В числах " + number1 + " и " + number2 + " одинаковые цифры ");
-            /*
-                отобразите результат в формате:
-                в числах N и M одинаковые цифры A, B, C стоят в разрядах X, Y, Z
-            */
-            // формируем первую часть вывода: "в числах N и M одинаковые цифры A, B, C стоят в разрядах "
             if (matchDigit1) {
-                // выводим число
-                System.out.print(number1 / 100);
-                // проверяем, есть ли еще совпадения и если есть, то дополнительно выводим запятую
-                if (matchDigit2 || matchDigit3) System.out.print(", ");
+                System.out.print("\n\t " + (number1 / 100) + " стоят в сотнях");
             }
             if (matchDigit2) {
-                System.out.print(number1 % 100 / 10);
-                if (matchDigit3) System.out.print(", ");
+                System.out.print("\n\t " + (number1 % 100 / 10) + " стоят в десятках");
             }
             if (matchDigit3) {
-                System.out.print(number1 % 10);
-            }
-            System.out.print(" стоят в разрядах ");
-
-            // формируем вторую часть вывода: "X, Y, Z" 
-            if (matchDigit1) {
-                System.out.print("сотни");
-                if (matchDigit2 || matchDigit3) System.out.print(", ");
-            }
-            if (matchDigit2) {
-                System.out.print("десятки");
-                if (matchDigit3) System.out.print(", ");
-            }
-            if (matchDigit3) {
-                System.out.print("единицы");
+                System.out.print("\n\t " + (number1 % 10) + " стоят в единицах");
             }
         }
 
@@ -111,11 +88,11 @@ public class IfElseStatementTheme {
         System.out.println("числовое значение символа: " + (short) someChar);
         System.out.println("символ в таблице ASCII: " + someChar);
         
-        if (someChar >= 65 && someChar <= 90) {
+        if (someChar >= 'A' && someChar <= 'Z') {
             System.out.println("большая буква");
-        } else if (someChar >= 97 && someChar <= 122) {
+        } else if (someChar >= 'a' && someChar <= 'z') {
             System.out.println("маленькая буква");
-        } else if (someChar >= 48 && someChar <= 57) {
+        } else if (someChar >= '0' && someChar <= '9') {
             System.out.println("это число");
         } else {
             System.out.println("не буква и не число");
