@@ -8,14 +8,14 @@ public class MyFirstGame {
         int startRange = 1;
         int endRange = 100;
         while (true) {
-            if (playerNumber == randomNumber) {
-                break;
-            } else if (playerNumber > randomNumber) {
+            if (playerNumber > randomNumber) {
                 System.out.format("Число %d больше того, что загадал компьютер%n", playerNumber);
                 endRange = playerNumber - 1;
             } else if (playerNumber < randomNumber) {
                 System.out.format("Число %d меньше того, что загадал компьютер%n", playerNumber);
                 startRange = playerNumber + 1;
+            } else {
+                break;
             }
             // типа игрок выбирает новое число
             playerNumber = startRange + (endRange - startRange) / (playerNumber % 3 + 1); 
