@@ -269,6 +269,8 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
+											"left": 160,
+											"top": -128,
 											"height": 13
 										},
 										{
@@ -278,8 +280,8 @@
 												"$ref": "AAAAAAGBbCKktVuMyTQ="
 											},
 											"font": "Arial;13;1",
-											"left": 173,
-											"top": 279,
+											"left": 253,
+											"top": 215,
 											"width": 462.09033203125,
 											"height": 13,
 											"text": "GuessNumber"
@@ -292,6 +294,8 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
+											"left": 160,
+											"top": -128,
 											"width": 73.67724609375,
 											"height": 13,
 											"text": "(from Model)"
@@ -304,13 +308,15 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
+											"left": 160,
+											"top": -128,
 											"height": 13,
 											"horizontalAlignment": 1
 										}
 									],
 									"font": "Arial;13;0",
-									"left": 168,
-									"top": 272,
+									"left": 248,
+									"top": 208,
 									"width": 472.09033203125,
 									"height": 25,
 									"stereotypeLabel": {
@@ -346,8 +352,8 @@
 												"$ref": "AAAAAAGBbCLquFuz2hM="
 											},
 											"font": "Arial;13;0",
-											"left": 173,
-											"top": 302,
+											"left": 253,
+											"top": 238,
 											"width": 462.09033203125,
 											"height": 13,
 											"text": "-Player1: Player",
@@ -363,8 +369,8 @@
 												"$ref": "AAAAAAGBbCM8qVu7M70="
 											},
 											"font": "Arial;13;0",
-											"left": 173,
-											"top": 317,
+											"left": 253,
+											"top": 253,
 											"width": 462.09033203125,
 											"height": 13,
 											"text": "-Player2: Player",
@@ -380,8 +386,8 @@
 												"$ref": "AAAAAAGBbCP9f1vD3Lo="
 											},
 											"font": "Arial;13;0",
-											"left": 173,
-											"top": 332,
+											"left": 253,
+											"top": 268,
 											"width": 462.09033203125,
 											"height": 13,
 											"text": "-guessedNumber: int",
@@ -389,8 +395,8 @@
 										}
 									],
 									"font": "Arial;13;0",
-									"left": 168,
-									"top": 297,
+									"left": 248,
+									"top": 233,
 									"width": 472.09033203125,
 									"height": 53
 								},
@@ -414,11 +420,11 @@
 												"$ref": "AAAAAAGBbCWkTFvLd28="
 											},
 											"font": "Arial;13;0",
-											"left": 173,
-											"top": 355,
+											"left": 253,
+											"top": 291,
 											"width": 462.09033203125,
 											"height": 13,
-											"text": "+GuessNumber(Player1: Player, Player2: Player, startRange: int, endRange: int)",
+											"text": "+GuessNumber(Player1: Player, Player2: Player)",
 											"horizontalAlignment": 0
 										},
 										{
@@ -431,17 +437,17 @@
 												"$ref": "AAAAAAGBbCcy6VvaHeE="
 											},
 											"font": "Arial;13;0",
-											"left": 173,
-											"top": 370,
+											"left": 253,
+											"top": 306,
 											"width": 462.09033203125,
 											"height": 13,
-											"text": "+startGame()",
+											"text": "+startGame(startRange: int, endRange: int)",
 											"horizontalAlignment": 0
 										}
 									],
 									"font": "Arial;13;0",
-									"left": 168,
-									"top": 350,
+									"left": 248,
+									"top": 286,
 									"width": 472.09033203125,
 									"height": 38
 								},
@@ -456,6 +462,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
+									"left": 80,
+									"top": -64,
 									"width": 10,
 									"height": 10
 								},
@@ -470,14 +478,16 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
+									"left": 80,
+									"top": -64,
 									"width": 10,
 									"height": 10
 								}
 							],
 							"font": "Arial;13;0",
 							"containerChangeable": true,
-							"left": 168,
-							"top": 272,
+							"left": 248,
+							"top": 208,
 							"width": 472.09033203125,
 							"height": 116,
 							"nameCompartment": {
@@ -622,24 +632,6 @@
 									"type": {
 										"$ref": "AAAAAAGBbB+k8VtF7Y8="
 									}
-								},
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAGBbCY6vlvUVX0=",
-									"_parent": {
-										"$ref": "AAAAAAGBbCWkTFvLd28="
-									},
-									"name": "startRange",
-									"type": "int"
-								},
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAGBbCY6vlvV4pE=",
-									"_parent": {
-										"$ref": "AAAAAAGBbCWkTFvLd28="
-									},
-									"name": "endRange",
-									"type": "int"
 								}
 							]
 						},
@@ -649,7 +641,27 @@
 							"_parent": {
 								"$ref": "AAAAAAGBbCKktVuJzxo="
 							},
-							"name": "startGame"
+							"name": "startGame",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGBbCrAGlvlEoY=",
+									"_parent": {
+										"$ref": "AAAAAAGBbCcy6VvaHeE="
+									},
+									"name": "startRange",
+									"type": "int"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGBbCrAGlvmMEE=",
+									"_parent": {
+										"$ref": "AAAAAAGBbCcy6VvaHeE="
+									},
+									"name": "endRange",
+									"type": "int"
+								}
+							]
 						}
 					]
 				}
