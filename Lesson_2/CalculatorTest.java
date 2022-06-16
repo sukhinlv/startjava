@@ -1,13 +1,26 @@
 import java.util.Scanner;
 
 public class CalculatorTest {
+
+    public static boolean answerIsYes(String question) {
+        String choice = "";
+        boolean result = false;
+        Scanner sc = new Scanner(System.in);
+        do {
+            System.out.format("%s [yes/no]: ", question);
+            choice = sc.nextLine().toLowerCase();
+            result = choice.equals("yes");
+        } while (!choice.equals("yes") && !choice.equals("no"));
+        return result;
+    }
+
     public static void main(String[] args) {
-        Calculator calc = new Calculator();
         Scanner sc = new Scanner(System.in);
         boolean anotherCalculation = true;
-        String choice;
+        Calculator calc = new Calculator();
         /*
-            использование sc.nextLine(); после sc.nextInt() нужно, чтобы не происходило пустого ввода в следующий запрос ввода
+            использование sc.nextLine(); после sc.nextInt() нужно, 
+            чтобы не происходило пустого ввода в следующий запрос ввода
             https://ru.stackoverflow.com/questions/526818/scanner-не-считывает-строку-после-nextint
         */
         do {
@@ -21,12 +34,6 @@ public class CalculatorTest {
             sc.nextLine();
 
             System.out.println(calc.getA() + " " + calc.getSign() + " " + calc.getB() + " = " + calc.calc());
-
-            do {
-                System.out.print("Хотите продолжить вычисления? [yes/no]: ");
-                choice = sc.nextLine().toLowerCase();
-                anotherCalculation = choice.equals("yes");
-            } while (!choice.equals("yes") && !choice.equals("no"));
-        } while (anotherCalculation);
+        } while (answerIsYes("Хотите продолжить вычисления?"));
     }
 }
