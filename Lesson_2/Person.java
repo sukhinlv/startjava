@@ -2,7 +2,7 @@ public class Person {
 
     int age = 40;
     int height = 174;
-    boolean isMale = true;
+    boolean male = true;
     String name  = "anonymous";
     double weight = 78.5;
 
