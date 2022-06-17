@@ -5,7 +5,7 @@ public class Wolf {
     private String nickname;
     private double weight;
 
-    public final int MAX_AGE = 8;
+    public static final int MAX_AGE = 8;
 
     public int getAge() {
          return age;

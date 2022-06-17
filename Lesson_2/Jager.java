@@ -12,10 +12,9 @@ public class Jager {
 
     public Jager() {
         active = true;
-        drift = false;
     }
 
-    public Jager (String modelName, String mark, String origin, double height, double weight,
+    public Jager(String modelName, String mark, String origin, double height, double weight,
             int speed, int power, int armour) {
         this();
         this.modelName = modelName;

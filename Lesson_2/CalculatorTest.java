@@ -2,21 +2,8 @@ import java.util.Scanner;
 
 public class CalculatorTest {
 
-    public static boolean answerIsYes(String question) {
-        String choice = "";
-        boolean result = false;
-        Scanner sc = new Scanner(System.in);
-        do {
-            System.out.format("%s [yes/no]: ", question);
-            choice = sc.nextLine().toLowerCase();
-            result = choice.equals("yes");
-        } while (!choice.equals("yes") && !choice.equals("no"));
-        return result;
-    }
-
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        boolean anotherCalculation = true;
         Calculator calc = new Calculator();
         /*
             использование sc.nextLine(); после sc.nextInt() нужно, 
@@ -33,7 +20,18 @@ public class CalculatorTest {
             calc.setB(sc.nextInt());
             sc.nextLine();
 
-            System.out.println(calc.getA() + " " + calc.getSign() + " " + calc.getB() + " = " + calc.calc());
-        } while (answerIsYes("Хотите продолжить вычисления?"));
+            System.out.println(calc.getA() + " " + calc.getSign() + " " + calc.getB() + 
+                    " = " + calc.calculate());
+        } while (answerIsYes());
+    }
+
+    private static boolean answerIsYes() {
+        String choice = "";
+        Scanner sc = new Scanner(System.in);
+        do {
+            System.out.print("Хотите продолжить вычисления? [yes/no]: ");
+            choice = sc.nextLine().toLowerCase();
+        } while (!choice.equals("yes") && !choice.equals("no"));
+        return choice.equals("yes");
     }
 }
