@@ -5,15 +5,13 @@ public class GuessNumber {
     private Player player1;
     private Player player2;
     private int guessedNumber;
-    private Scanner sc;
 
     public GuessNumber(Player player1, Player player2) {
         this.player1 = player1;
         this.player2 = player2;
-        sc = new Scanner(System.in);
     }
 
-    public void startGame(int startRange, int endRange) {
+    public void start(int startRange, int endRange) {
         Random rnd = new Random();
         guessedNumber = startRange + rnd.nextInt(endRange - startRange + 1);
 
@@ -30,6 +28,7 @@ public class GuessNumber {
 
     private boolean numberGuessed(Player player) {
         boolean result = false;
+        Scanner sc = new Scanner(System.in);
         System.out.format("%nХодит %s. Введите число: ", player.getName());
         player.setNumber(sc.nextInt());
         sc.nextLine();

@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
 public class CalculatorTest {
-
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Calculator calc = new Calculator();
@@ -22,12 +21,11 @@ public class CalculatorTest {
 
             System.out.println(calc.getA() + " " + calc.getSign() + " " + calc.getB() + 
                     " = " + calc.calculate());
-        } while (answerIsYes());
+        } while (isNext(sc));
     }
 
-    private static boolean answerIsYes() {
+    private static boolean isNext(Scanner sc) {
         String choice = "";
-        Scanner sc = new Scanner(System.in);
         do {
             System.out.print("Хотите продолжить вычисления? [yes/no]: ");
             choice = sc.nextLine().toLowerCase();

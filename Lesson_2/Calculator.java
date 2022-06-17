@@ -25,65 +25,56 @@ public class Calculator {
     }
 
     public void setSign(char sign) {
-        if (checkSignCorrect(sign)) {
-            this.sign = sign;
-        } else {
-            System.out.println("Неизвестный знак! Операция не выполнена.");
-        }
-    }
-
-    public int calculate() {
-        return calculate(a, b, sign);
-    }
-
-    public static boolean checkSignCorrect(char sign) {
-        return sign == '+' ||
+        if (sign == '+' ||
                 sign == '-' ||
                 sign == '*' ||
                 sign == '/' ||
                 sign == '%' ||
-                sign == '^';
+                sign == '^') {
+            this.sign = sign;
+        } else {
+            System.out.printf("Неизвестный знак \"%s\"! Операция не выполнена.\n", sign);
+        }
     }
 
-    public static int calculate(int a, int b, char sign) {
-        return
-            switch (sign) {
-                case '+' -> a + b;
-                case '-' -> a - b;
-                case '*' -> a * b;
-                case '/' -> {
-                    if (b == 0) {
-                        System.out.println("Деление на 0! Операция не выполнена.");
-                        yield 0;
-                    } else {
-                        yield a / b;
-                    }
+    public int calculate() {
+        return switch (sign) {
+            case '+' -> a + b;
+            case '-' -> a - b;
+            case '*' -> a * b;
+            case '/' -> {
+                if (b == 0) {
+                    System.out.println("Деление на 0! Операция не выполнена.");
+                    yield 0;
+                } else {
+                    yield a / b;
                 }
-                case '^' -> {
-                    if (b >= 0) {
-                        int tmpnum = 1;
-                        for (int i = 1; i <= b; i++) {
-                            tmpnum *=  a;
-                        }
-                        yield tmpnum;
-                    } else {
-                        System.out.format("Нельзя возвести в степень %d! Операция не выполнена.%n", b);
-                        yield 0;
+            }
+            case '^' -> {
+                if (b >= 0) {
+                    int tmpnum = 1;
+                    for (int i = 1; i <= b; i++) {
+                        tmpnum *=  a;
                     }
-                }
-                case '%' -> {
-                    if (b == 0) {
-                        System.out.println("Деление на 0! Операция не выполнена.");
-                        yield 0;
-                    } else {
-                        yield a % b;
-                    }
-                }
-                default -> {
-                    System.out.println("Неизвестный знак! Операция не выполнена.");
+                    yield tmpnum;
+                } else {
+                    System.out.format("Нельзя возвести в степень %d! Операция не выполнена.%n", b);
                     yield 0;
                 }
-            };
+            }
+            case '%' -> {
+                if (b == 0) {
+                    System.out.println("Деление на 0! Операция не выполнена.");
+                    yield 0;
+                } else {
+                    yield a % b;
+                }
+            }
+            default -> {
+                System.out.printf("Неизвестный знак \"%s\"! Операция не выполнена.\n", sign);
+                yield 0;
+            }
+        };
     }
     
 }
