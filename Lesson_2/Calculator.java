@@ -26,11 +26,11 @@ public class Calculator {
 
     public void setSign(char sign) {
         if (sign == '+' ||
-                sign == '-' ||
-                sign == '*' ||
-                sign == '/' ||
-                sign == '%' ||
-                sign == '^') {
+            sign == '-' ||
+            sign == '*' ||
+            sign == '/' ||
+            sign == '%' ||
+            sign == '^') {
             this.sign = sign;
         } else {
             System.out.printf("Неизвестный знак \"%s\"! Операция не выполнена.\n", sign);

@@ -2,8 +2,8 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class GuessNumber {
-    private static int START_RANGE = 1;
-    private static int END_RANGE = 100;
+    private static final int START_RANGE = 1;
+    private static final int END_RANGE = 100;
     private Player player1;
     private Player player2;
     private int guessedNumber;
@@ -20,7 +20,7 @@ public class GuessNumber {
     public void start() {
         guessedNumber = START_RANGE + rnd.nextInt(END_RANGE - START_RANGE + 1);
         System.out.printf("\nЗагадано число от %d до %d\n", START_RANGE, END_RANGE);
-        while (!(isGuessed(player1) || isGuessed(player2))) {};
+        while (!(isGuessed(player1) || isGuessed(player2))) {}
     }
 
     private boolean isGuessed(Player player) {
@@ -30,7 +30,8 @@ public class GuessNumber {
         if (player.getNumber() == guessedNumber) {
             System.out.println("\nВерно! Победил игрок " + player.getName());
             return true;
-        } else if (player.getNumber() > guessedNumber) {
+        }
+        if (player.getNumber() > guessedNumber) {
             System.out.printf("Число %d больше того, что загадал компьютер\n", player.getNumber());
         } else if (player.getNumber() < guessedNumber) {
             System.out.printf("Число %d меньше того, что загадал компьютер\n", player.getNumber());
