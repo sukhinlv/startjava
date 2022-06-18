@@ -1,5 +1,7 @@
 import java.util.Random;
 import java.util.Scanner;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 
 public class GuessNumber {
     private static int START_RANGE = 1;
