@@ -1,3 +1,5 @@
+package com.startjava.lesson_1.base.final;
+
 public class MyFirstGame {
     public static void main(String[] args) {
         // "случайное" число (0, 100]

@@ -1,3 +1,5 @@
+package com.startjava.lesson_2_3.robot;
+
 public class JagerTest {
     public static void main(String[] args) {
         Jager strikerEureka = new Jager();
