@@ -2,7 +2,8 @@ import java.util.Scanner;
 
 public class GuessNumberTest {
     public static void main(String[] args) {    
-        Scanner sc = new Scanner(System.in);
+        // если не указывать "cp866" то при вводе русских букв в имени игрока потом выводятся ???
+        Scanner sc = new Scanner(System.in, "cp866");
         System.out.print("\nВведите имя первого игрока: ");
         Player player1 = new Player(sc.nextLine());
         System.out.print("Введите имя второго игрока: ");
