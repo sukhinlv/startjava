@@ -52,13 +52,13 @@ public class Calculator {
             }
             case '^' -> {
                 if (b >= 0) {
-                    int tmpnum = 1;
+                    int result = 1;
                     for (int i = 1; i <= b; i++) {
-                        tmpnum *=  a;
+                        result *=  a;
                     }
-                    yield tmpnum;
+                    yield result;
                 } else {
-                    System.out.format("Нельзя возвести в степень %d! Операция не выполнена.%n", b);
+                    System.out.printf("Нельзя возвести в степень %d! Операция не выполнена.\n", b);
                     yield 0;
                 }
             }
@@ -75,6 +75,5 @@ public class Calculator {
                 yield 0;
             }
         };
-    }
-    
+    }    
 }
