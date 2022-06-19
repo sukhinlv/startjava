@@ -7,11 +7,6 @@ public class CalculatorTest {
         Scanner sc = new Scanner(System.in);
         Calculator calc = new Calculator();
         String[] entertedExp;
-        /*
-            использование sc.nextLine(); после sc.nextInt() нужно, 
-            чтобы не происходило пустого ввода в следующий запрос ввода
-            https://ru.stackoverflow.com/questions/526818/scanner-не-считывает-строку-после-nextint
-        */
         do {
             System.out.print("\nВведите математическое выражение (например 2 ^ 10): ");
             entertedExp = sc.nextLine().split(" ");
