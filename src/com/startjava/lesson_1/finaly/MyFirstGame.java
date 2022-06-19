@@ -1,4 +1,4 @@
-package com.startjava.lesson_1.base.final;
+package com.startjava.lesson_1.base.finaly;
 
 public class MyFirstGame {
     public static void main(String[] args) {
