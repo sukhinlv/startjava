@@ -27,7 +27,7 @@ public class IfElseStatementTheme {
         }
 
         char firtstLetterOfName = name.charAt(0);
-        if (firtstLetterOfName == 'М') {
+        if (firtstLetterOfName == 'M') {
             System.out.println("Думаю, твое имя начинается на букву М");
         } else if (firtstLetterOfName == 'I') {
             System.out.println("Какое интересное имя на букву I, что бы это могло быть?");
