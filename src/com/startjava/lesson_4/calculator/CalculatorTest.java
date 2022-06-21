@@ -6,15 +6,9 @@ public class CalculatorTest {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Calculator calc = new Calculator();
-        String[] enteredExp;
         do {
             System.out.print("\nВведите математическое выражение (например 2 ^ 10): ");
-            enteredExp = sc.nextLine().split(" ");
-            calc.setA(Integer.parseInt(enteredExp[0]));
-            calc.setSign(enteredExp[1].charAt(0));
-            calc.setB(Integer.parseInt(enteredExp[2]));
-
-            System.out.println(calc.getA() + " " + calc.getSign() + " " + calc.getB() + " = " + calc.calculate());
+            System.out.println("Результат вычисления: " + calc.calculate(sc.nextLine()));
         } while (isNext(sc));
     }
     private static boolean isNext(Scanner sc) {
