@@ -11,6 +11,7 @@ public class CalculatorTest {
             System.out.println("Результат вычисления: " + calc.calculate(sc.nextLine()));
         } while (isNext(sc));
     }
+
     private static boolean isNext(Scanner sc) {
         String choice;
         do {

@@ -8,7 +8,8 @@ public class ArrayTheme {
         System.out.println("\n1. Реверс значений массива");
         int[] intArr = {1, 2, 3, 4, 5, 6, 7};
         printArr(intArr);
-        printArr(reverseArr(intArr));
+        reverseArr(intArr);
+        printArr(intArr);
 
         System.out.println("\n2. Вывод произведения элементов массива");
         intArr = new int[10];
@@ -17,22 +18,22 @@ public class ArrayTheme {
         for (int i = 1; i < 9; i++) {
             intArr[i] = i;
             multNumbers *= i;
-            System.out.print(i < 8 ? i + " * " : i);
+            System.out.print(i < 8 ? i + " * " : i + " = " + multNumbers + "\n");
         }
-        System.out.println(" = " + multNumbers);
         System.out.println("[0] = " + intArr[0]);
         System.out.println("[9] = " + intArr[9]);
 
         System.out.println("\n3. Удаление элементов массива");
         double[] doubleArr = new double[15];
         Random rnd = new Random();
-        int counter = 0;
-        for (int i = 0; i < doubleArr.length; i++) {
+        int len = doubleArr.length;
+        for (int i = 0; i < len; i++) {
             doubleArr[i] = rnd.nextDouble();
         }
         printArr(doubleArr);
-        for (int i = 0; i < doubleArr.length; i++) {
-            if (doubleArr[i] > doubleArr[doubleArr.length / 2]) {
+        int counter = 0;
+        for (int i = 0; i < len; i++) {
+            if (doubleArr[i] > doubleArr[len / 2]) {
                 doubleArr[i] = 0;
                 counter++;
             }
@@ -43,13 +44,14 @@ public class ArrayTheme {
         System.out.println("\n4. Вывод элементов массива лесенкой в обратном порядке");
         // чтобы не выводить весь английский алфавит инициализируем массив только шестью символами начиная с U
         char[] charArr = new char[6];
-        charArr[0] = 'U';
-        for (int i = 1; i < charArr.length ; i++) {
-            charArr[i] = (char) (charArr[i-1] + 1);
+        len = charArr.length;
+        char ch = 'U';
+        for (int i = 0; i < len; i++) {
+            charArr[i] = ch++;
         }
-        for (int i = 0; i < charArr.length; i++) {
+        for (int i = 0; i < len; i++) {
             for (int j = 0; j <= i; j++) {
-                System.out.print(charArr[charArr.length - j - 1]);
+                System.out.print(charArr[len - j - 1]);
             }
             System.out.println();
         }
@@ -62,7 +64,7 @@ public class ArrayTheme {
             do {
                 uniqNum = true;
                 rndNum = 60 + rnd.nextInt(100 - 60 + 1);
-                for (int j = 0; j <= i ; j++) {
+                for (int j = 0; j <= i; j++) {
                     if (intArr[j] == rndNum) {
                         uniqNum = false;
                         break;
@@ -72,7 +74,6 @@ public class ArrayTheme {
             intArr[i] = rndNum;
         }
         Arrays.sort(intArr);
-        intArr = reverseArr(intArr);
         printArr(intArr, 10);
 
         System.out.println("\n6. Сдвиг элементов массива");
@@ -87,9 +88,10 @@ public class ArrayTheme {
         String[] stringResultArr = new String[counter];
         // счетчик идущих подряд непустых элементов
         counter = 0;
+        len = stringArr.length;
         // указатель на очередную позицию для записи в массиве-приемнике
         int resultPos = 0;
-        for (int i = 0; i < stringArr.length; i++) {
+        for (int i = 0; i < len; i++) {
             // если попался пустой элемент, то копируем все предшествующие непустые элементы в массив-приемник
             if (stringArr[i].isBlank()) {
                 if (counter != 0) {
@@ -103,7 +105,7 @@ public class ArrayTheme {
         }
         // обрабатываем последние элементы массива, после которых нет пустой строки
         if (counter > 0) {
-            System.arraycopy(stringArr, stringArr.length - counter, stringResultArr, resultPos, counter);
+            System.arraycopy(stringArr, len - counter, stringResultArr, resultPos, counter);
         }
         System.out.println(Arrays.toString(stringArr));
         System.out.println(Arrays.toString(stringResultArr));
@@ -111,13 +113,15 @@ public class ArrayTheme {
         System.out.println();
     }
 
-    public static int[] reverseArr(int[] arr) {
-        int[] newArr = new int[arr.length];
+    public static void reverseArr(int[] arr) {
+        int tmp;
+        int len;
         for (int i = 0; i <= arr.length / 2; i++) {
-            newArr[i] = arr[arr.length - i - 1];
-            newArr[arr.length - i - 1] = arr[i];
+            len = arr.length - i - 1;
+            tmp = arr[len];
+            arr[len] = arr[i];
+            arr[i] = tmp;
         }
-        return newArr;
     }
 
     public static void printArr(double[] arr) {
