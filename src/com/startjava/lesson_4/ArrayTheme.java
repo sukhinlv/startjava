@@ -8,7 +8,14 @@ public class ArrayTheme {
         System.out.println("\n1. Реверс значений массива");
         int[] intArr = {1, 2, 3, 4, 5, 6, 7};
         printArr(intArr);
-        reverseArr(intArr);
+        int tmp;
+        int len;
+        for (int i = 0; i <= intArr.length / 2; i++) {
+            len = intArr.length - i - 1;
+            tmp = intArr[len];
+            intArr[len] = intArr[i];
+            intArr[i] = tmp;
+        }
         printArr(intArr);
 
         System.out.println("\n2. Вывод произведения элементов массива");
@@ -26,20 +33,20 @@ public class ArrayTheme {
         System.out.println("\n3. Удаление элементов массива");
         double[] doubleArr = new double[15];
         Random rnd = new Random();
-        int len = doubleArr.length;
+        len = doubleArr.length;
         for (int i = 0; i < len; i++) {
             doubleArr[i] = rnd.nextDouble();
         }
         printArr(doubleArr);
-        int counter = 0;
+        int count = 0;
         for (int i = 0; i < len; i++) {
             if (doubleArr[i] > doubleArr[len / 2]) {
                 doubleArr[i] = 0;
-                counter++;
+                count++;
             }
         }
         printArr(doubleArr);
-        System.out.println("Ячеек обнулено: " + counter);
+        System.out.println("Ячеек обнулено: " + count);
 
         System.out.println("\n4. Вывод элементов массива лесенкой в обратном порядке");
         // чтобы не выводить весь английский алфавит инициализируем массив только шестью символами начиная с U
@@ -77,51 +84,37 @@ public class ArrayTheme {
         printArr(intArr, 10);
 
         System.out.println("\n6. Сдвиг элементов массива");
-        // посчитаем все непустые элементы, чтобы создать массив-приемник
-        String[] stringArr = {"", "AA", "", "", "BBB", "C", "", "DDDD"};
-        counter = 0;
-        for (String str : stringArr) {
+        // посчитаем все непустые элементы, чтобы создать массив-приёмник
+        String[] stringsArr = {"", "AA", "", "", "BBB", "C", "", "DDDD"};
+        count = 0;
+        for (String str : stringsArr) {
             if (str.isBlank()) {
-                counter++;
+                count++;
             }
         }
-        String[] stringResultArr = new String[counter];
+        String[] resultArr = new String[count];
         // счетчик идущих подряд непустых элементов
-        counter = 0;
-        len = stringArr.length;
-        // указатель на очередную позицию для записи в массиве-приемнике
+        count = 0;
+        len = stringsArr.length;
+        // указатель на очередную позицию для записи в массиве-приёмнике
         int resultPos = 0;
+        boolean lastItem;
         for (int i = 0; i < len; i++) {
-            // если попался пустой элемент, то копируем все предшествующие непустые элементы в массив-приемник
-            if (stringArr[i].isBlank()) {
-                if (counter != 0) {
-                    System.arraycopy(stringArr, i - counter, stringResultArr, resultPos, counter);
-                    resultPos += counter;
-                    counter = 0;
-                }
-            } else {
-                counter++;
+            // если попался пустой элемент, то копируем все предшествующие непустые элементы в массив-приёмник
+            if (!stringsArr[i].isBlank()) {
+                count++;
+            }
+            lastItem = (i == len - 1);
+            if ((stringsArr[i].isBlank() || lastItem) && (count > 0)) {
+                System.arraycopy(stringsArr, lastItem ? i : i - count, resultArr, resultPos, count);
+                resultPos += count;
+                count = 0;
             }
         }
-        // обрабатываем последние элементы массива, после которых нет пустой строки
-        if (counter > 0) {
-            System.arraycopy(stringArr, len - counter, stringResultArr, resultPos, counter);
-        }
-        System.out.println(Arrays.toString(stringArr));
-        System.out.println(Arrays.toString(stringResultArr));
+        System.out.println(Arrays.toString(stringsArr));
+        System.out.println(Arrays.toString(resultArr));
 
         System.out.println();
-    }
-
-    public static void reverseArr(int[] arr) {
-        int tmp;
-        int len;
-        for (int i = 0; i <= arr.length / 2; i++) {
-            len = arr.length - i - 1;
-            tmp = arr[len];
-            arr[len] = arr[i];
-            arr[i] = tmp;
-        }
     }
 
     public static void printArr(double[] arr) {

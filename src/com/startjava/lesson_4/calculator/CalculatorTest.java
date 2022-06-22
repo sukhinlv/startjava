@@ -5,11 +5,17 @@ import java.util.Scanner;
 public class CalculatorTest {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Calculator calc = new Calculator();
+        boolean expressionErrors;
         do {
             System.out.print("\nВведите математическое выражение (например 2 ^ 10): ");
-            System.out.println("Результат вычисления: " + calc.calculate(sc.nextLine()));
-        } while (isNext(sc));
+            expressionErrors = false;
+            try {
+                System.out.println("Результат вычисления: " + Calculator.calculate(sc.nextLine()));
+            } catch (IllegalArgumentException e) {
+                System.out.print("ОШИБКА: " + e.getMessage());
+                expressionErrors = true;
+            }
+        } while (expressionErrors || isNext(sc));
     }
 
     private static boolean isNext(Scanner sc) {

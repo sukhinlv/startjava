@@ -1,40 +1,32 @@
 package com.startjava.lesson_4.calculator;
 
 public class Calculator {
-    public int calculate(String mathExpression) {
+    public static int calculate(String mathExpression) throws NumberFormatException {
         String[] expressionParts = mathExpression.split(" ");
-        int a = Integer.parseInt(expressionParts[0]);
-        char sign = expressionParts[1].charAt(0);
-        int b = Integer.parseInt(expressionParts[2]);
+        if (expressionParts.length != 3) {
+            throw new IllegalArgumentException("Выражение должно состоять из трех частей, разделенных пробелами!");
+        }
+        int a;
+        char sign;
+        int b;
+        try {
+            a = Integer.parseInt(expressionParts[0]);
+            sign = expressionParts[1].charAt(0);
+            b = Integer.parseInt(expressionParts[2]);
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException("В выражении допустимо использовать только целые положительные числа!");
+        }
+        if (a < 1 || b < 1) {
+            throw new IllegalArgumentException("В выражении допустимо использовать только целые положительные числа!");
+        }
         return switch (sign) {
             case '+' -> a + b;
             case '-' -> a - b;
             case '*' -> a * b;
-            case '/' -> {
-                if (b == 0) {
-                    System.out.println("Деление на 0! Операция не выполнена.");
-                    yield 0;
-                }
-                yield a / b;
-            }
-            case '^' -> {
-                if (b >= 0) {
-                    yield (int) Math.pow(a, b);
-                }
-                System.out.printf("Нельзя возвести в степень %d! Операция не выполнена.\n", b);
-                yield 0;
-            }
-            case '%' -> {
-                if (b == 0) {
-                    System.out.println("Деление на 0! Операция не выполнена.");
-                    yield 0;
-                }
-                yield a % b;
-            }
-            default -> {
-                System.out.printf("Неизвестный знак \"%s\"! Операция не выполнена.\n", sign);
-                yield 0;
-            }
+            case '/' -> a / b;
+            case '^' -> (int) Math.pow(a, b);
+            case '%' -> a % b;
+            default -> throw new IllegalArgumentException("Неизвестный знак " + sign);
         };
     }    
 }
