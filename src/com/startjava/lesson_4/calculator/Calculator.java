@@ -1,7 +1,7 @@
 package com.startjava.lesson_4.calculator;
 
 public class Calculator {
-    public static int calculate(String mathExpression) throws NumberFormatException {
+    public static int calculate(String mathExpression) {
         String[] expressionParts = mathExpression.split(" ");
         if (expressionParts.length != 3) {
             throw new IllegalArgumentException("Выражение должно состоять из трех частей, разделенных пробелами!");

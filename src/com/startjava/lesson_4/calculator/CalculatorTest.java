@@ -8,14 +8,12 @@ public class CalculatorTest {
         boolean expressionErrors;
         do {
             System.out.print("\nВведите математическое выражение (например 2 ^ 10): ");
-            expressionErrors = false;
             try {
                 System.out.println("Результат вычисления: " + Calculator.calculate(sc.nextLine()));
             } catch (IllegalArgumentException e) {
                 System.out.print("ОШИБКА: " + e.getMessage());
-                expressionErrors = true;
             }
-        } while (expressionErrors || isNext(sc));
+        } while (isNext(sc));
     }
 
     private static boolean isNext(Scanner sc) {
