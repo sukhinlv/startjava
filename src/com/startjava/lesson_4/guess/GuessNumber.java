@@ -4,8 +4,9 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class GuessNumber {
-    private static final int START_RANGE = 1;
-    private static final int END_RANGE = 100;
+    public static final int MAX_TRY_COUNT = 10;
+    public static final int START_RANGE = 1;
+    public static final int END_RANGE = 100;
     private Player player1;
     private Player player2;
     private int guessedNumber;
@@ -29,26 +30,13 @@ public class GuessNumber {
         printEnteredNumbers(player2);
     }
 
-    private void printEnteredNumbers(Player player) {
-        int counter = 1;
-        System.out.println("\nХоды игрока " + player.getName());
-        for (int number : player.getEnteredNumbers()) {
-            System.out.printf("%5d", number);
-            if (counter % 5 == 0) {
-                System.out.println();
-            }
-            counter++;
-        }
-        System.out.println();
-    }
-
     private boolean isGuessed(Player player) {
         if (player.noMoreTries()) {
             System.out.printf("У %s закончились попытки!\n", player.getName());
             return false;
         }
         System.out.printf("\nХодит %s. Введите число: ", player.getName());
-        player.setNewNumber(sc.nextInt());
+        player.addNumber(sc.nextInt());
         sc.nextLine();
         if (player.getLastNumber() == guessedNumber) {
             System.out.printf("\nВерно! Игрок %s угадал число %d с %d попытки\n", player.getName(), guessedNumber,
@@ -64,5 +52,18 @@ public class GuessNumber {
             System.out.printf("У %s закончились попытки!\n", player.getName());
         }
         return false;
+    }
+
+    private void printEnteredNumbers(Player player) {
+        int counter = 1;
+        System.out.println("\nХоды игрока " + player.getName());
+        for (int number : player.getEnteredNumbers()) {
+            System.out.printf("%5d", number);
+            if (counter % 5 == 0) {
+                System.out.println();
+            }
+            counter++;
+        }
+        System.out.println();
     }
 }

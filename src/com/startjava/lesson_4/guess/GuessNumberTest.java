@@ -3,8 +3,6 @@ package com.startjava.lesson_4.guess;
 import java.util.Scanner;
 
 public class GuessNumberTest {
-    private static final int MAX_TRY_COUNT = 10;
-
     public static void main(String[] args) {
 /*
         если не указывать "cp866" то при вводе русских букв в имени игрока потом выводятся ???
@@ -14,10 +12,10 @@ public class GuessNumberTest {
         Scanner sc = new Scanner(System.in);
 //        Scanner sc = new Scanner(System.in, "cp866");
         System.out.print("\nВведите имя первого игрока: ");
-        Player player1 = new Player(sc.nextLine(), MAX_TRY_COUNT);
+        Player player1 = new Player(sc.nextLine());
         System.out.print("Введите имя второго игрока: ");
-        Player player2 = new Player(sc.nextLine(), MAX_TRY_COUNT);
-        System.out.printf("\nУ каждого игрока по %d попыток", MAX_TRY_COUNT);
+        Player player2 = new Player(sc.nextLine());
+        System.out.printf("\nУ каждого игрока по %d попыток", GuessNumber.MAX_TRY_COUNT);
         GuessNumber game = new GuessNumber(player1, player2);
         do {
             game.start();

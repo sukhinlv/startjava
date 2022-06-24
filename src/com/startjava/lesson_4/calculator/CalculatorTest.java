@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class CalculatorTest {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        boolean expressionErrors;
         do {
             System.out.print("\nВведите математическое выражение (например 2 ^ 10): ");
             try {
