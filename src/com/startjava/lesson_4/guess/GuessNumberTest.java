@@ -15,7 +15,6 @@ public class GuessNumberTest {
         Player player1 = new Player(sc.nextLine());
         System.out.print("Введите имя второго игрока: ");
         Player player2 = new Player(sc.nextLine());
-        System.out.printf("\nУ каждого игрока по %d попыток", GuessNumber.MAX_TRY_COUNT);
         GuessNumber game = new GuessNumber(player1, player2);
         do {
             game.start();
@@ -25,7 +24,7 @@ public class GuessNumberTest {
     private static boolean isNext(Scanner sc) {
         String choice = "";
         do {
-            System.out.print("\nХотите продолжить игру? [yes/no]: ");
+            System.out.print("\nХотите повторить игру? [yes/no]: ");
             choice = sc.nextLine().toLowerCase();
         } while (!choice.equals("yes") && !choice.equals("no"));
         return choice.equals("yes");

@@ -4,12 +4,11 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class GuessNumber {
-    public static final int MAX_TRY_COUNT = 10;
     public static final int START_RANGE = 1;
     public static final int END_RANGE = 100;
+    private int guessedNumber;
     private Player player1;
     private Player player2;
-    private int guessedNumber;
     private Random rnd;
     private Scanner sc;
 
@@ -24,6 +23,7 @@ public class GuessNumber {
         player1.reset();
         player2.reset();
         guessedNumber = START_RANGE + rnd.nextInt(END_RANGE - START_RANGE + 1);
+        System.out.printf("\nУ каждого игрока по %d попыток", Player.MAX_TRY_COUNT);
         System.out.printf("\nЗагадано число от %d до %d\n", START_RANGE, END_RANGE);
         while (!(isGuessed(player1) || isGuessed(player2) || (player1.noMoreTries() && player2.noMoreTries()))) {}
         printEnteredNumbers(player1);
@@ -64,6 +64,5 @@ public class GuessNumber {
             }
             counter++;
         }
-        System.out.println();
     }
 }

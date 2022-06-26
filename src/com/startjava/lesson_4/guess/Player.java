@@ -3,13 +3,14 @@ package com.startjava.lesson_4.guess;
 import java.util.Arrays;
 
 public class Player {
+    public static final int MAX_TRY_COUNT = 10;
     private int[] enteredNumbers;
     private String name;
     private int tryCount;
 
     public Player(String name) {
         this.name = name;
-        enteredNumbers = new int[GuessNumber.MAX_TRY_COUNT];
+        enteredNumbers = new int[MAX_TRY_COUNT];
     }
 
     public int[] getEnteredNumbers() {
@@ -22,7 +23,7 @@ public class Player {
     }
 
     public void addNumber(int number) {
-        if (tryCount == enteredNumbers.length) {
+        if (noMoreTries()) {
             return;
         }
         enteredNumbers[tryCount] = number;
@@ -38,13 +39,10 @@ public class Player {
     }
 
     public boolean noMoreTries() {
-        return tryCount == enteredNumbers.length;
+        return tryCount == MAX_TRY_COUNT;
     }
 
     public void reset() {
-        if (tryCount == 0) {
-            return;
-        }
         Arrays.fill(enteredNumbers, 0, tryCount, 0);
         tryCount = 0;
     }
