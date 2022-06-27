@@ -1,5 +1,7 @@
 package com.startjava.lesson_4.graduation;
 
+import java.util.Arrays;
+
 public class BookShelf {
     public static final int MAX_BOOKS_COUNT = 10;
     private int booksCount;
@@ -9,50 +11,52 @@ public class BookShelf {
         books = new Book[MAX_BOOKS_COUNT];
     }
 
-    public int getBooksCount() {
-        return booksCount;
-    }
-
-    public Book[] getBooks() {
-        Book[] arr = new Book[booksCount];
-        System.arraycopy(books, 0, arr, 0, booksCount);
-        return arr;
-    }
-
-    public int getEmptySpace() {
-        return MAX_BOOKS_COUNT - booksCount;
-    }
-
-    public Book findBookByName(String name) {
-        for (int i = 0; i < booksCount; i++) {
-            if (name.equals(books[i].getName())) {
-                return (Book) books[i].clone();
-            }
-        }
-        return null;
-    }
-
-    public boolean deleteBookByName(String name) {
-        for (int i = 0; i < booksCount; i++) {
-            if (name.equals(books[i].getName())) {
-                int movelen = booksCount - i - 1;
-                if (movelen > 0) {
-                    System.arraycopy(books, i + 1, books, i, movelen);
-                }
-                booksCount--;
-                books[booksCount] = null;
-                return  true;
-            }
-        }
-        return false;
-    }
-
-    public boolean addBook(String author, String name, int year) {
+    public boolean add(String author, String name, int year) {
         if (booksCount == MAX_BOOKS_COUNT) {
             return false;
         }
         books[booksCount] = new Book(author, name, year);
         booksCount++;
         return true;
+    }
+
+    public boolean delete(String name) {
+        int bookPos = findBookPos(name);
+        if (bookPos < 0) {
+            return false;
+        }
+        int len = booksCount - bookPos - 1;
+        if (len > 0) {
+            System.arraycopy(books, bookPos + 1, books, bookPos, len);
+        }
+        booksCount--;
+        books[booksCount] = null;
+        return  true;
+    }
+
+    public Book find(String name) {
+        int p = findBookPos(name);
+        return p < 0 ? null : (Book) books[p].clone();
+    }
+
+    public int findBookPos(String name) {
+        for (int i = 0; i < booksCount; i++) {
+            if (name.equals(books[i].getName())) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public Book[] getBooks() {
+        return Arrays.copyOf(books, booksCount);
+    }
+
+    public int getEmptySpace() {
+        return MAX_BOOKS_COUNT - booksCount;
+    }
+
+    public int getCount() {
+        return booksCount;
     }
 }

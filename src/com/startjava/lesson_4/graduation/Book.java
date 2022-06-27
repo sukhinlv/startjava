@@ -27,4 +27,9 @@ public class Book {
     public Object clone() {
         return new Book(author, name, publishYear);
     }
+
+    @Override
+    public String toString() {
+        return "[" + author + ", " + name + ", " + publishYear + "]";
+    }
 }

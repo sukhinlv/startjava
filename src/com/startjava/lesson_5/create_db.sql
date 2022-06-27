@@ -1,6 +1,7 @@
 DROP DATABASE jagers;
 CREATE DATABASE jagers;
 \c jagers
+
 CREATE TABLE IF NOT EXISTS jagers (
     jager_id    SERIAL          PRIMARY KEY,
     modelName   TEXT            UNIQUE NOT NULL,
