@@ -21,7 +21,7 @@ public class BookShelf {
     }
 
     public boolean delete(String name) {
-        int bookPos = findBookPos(name);
+        int bookPos = findIndex(name);
         if (bookPos < 0) {
             return false;
         }
@@ -35,17 +35,8 @@ public class BookShelf {
     }
 
     public Book find(String name) {
-        int p = findBookPos(name);
-        return p < 0 ? null : (Book) books[p].clone();
-    }
-
-    public int findBookPos(String name) {
-        for (int i = 0; i < booksCount; i++) {
-            if (name.equals(books[i].getName())) {
-                return i;
-            }
-        }
-        return -1;
+        int index = findIndex(name);
+        return index < 0 ? null : (Book) books[index].clone();
     }
 
     public Book[] getBooks() {
@@ -58,5 +49,14 @@ public class BookShelf {
 
     public int getCount() {
         return booksCount;
+    }
+
+    private int findIndex(String name) {
+        for (int i = 0; i < booksCount; i++) {
+            if (name.equals(books[i].getName())) {
+                return i;
+            }
+        }
+        return -1;
     }
 }

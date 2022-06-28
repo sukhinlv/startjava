@@ -8,25 +8,24 @@ public class BookShelfTest {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         BookShelf bs = new BookShelf();
-        int selectedMenu;
+        int menuItem;
         do {
             printBookShelf(bs.getBooks());
             printMenu();
-            selectedMenu = selectMenu(sc);
-            switch (selectedMenu) {
+            menuItem = selectMenu(sc);
+            switch (menuItem) {
                 case 1 -> {
-                    String name;
-                    String author;
-                    int year = 0;
                     System.out.println("\nДобавление книги на полку");
                     System.out.print("Автор: ");
-                    author = sc.nextLine();
+                    String author = sc.nextLine();
                     System.out.print("Название книги: ");
-                    name = sc.nextLine();
+                    String name = sc.nextLine();
                     System.out.print("Год выхода в печать: ");
+                    int year = 0;
                     try {
                         year = Integer.parseInt(sc.nextLine());
-                    } catch (NumberFormatException ignored) {
+                    } catch (NumberFormatException e) {
+                        year = 0;
                     }
                     if (year <= 0) {
                         System.out.println("\nГод указан неверно!");
@@ -49,7 +48,7 @@ public class BookShelfTest {
                 case 4 -> System.out.println("\nКоличество книг на полке: " + bs.getCount());
                 case 5 -> System.out.println("\nСвободных мест на полке: " + bs.getEmptySpace());
             }
-        } while (selectedMenu != 6);
+        } while (menuItem != 6);
     }
 
     private static void printBookShelf(Book[] books) {
@@ -63,16 +62,16 @@ public class BookShelfTest {
     }
 
     private static void printMenu() {
-        System.out.println("""
-                       \nМЕНЮ:
-                       1. добавить книгу
-                       2. удалить книгу
-                       3. найти книгу по названию
-                       4. вывести количество книг на полке
-                       5. вывести количество свободных мест
-                       6. выход
-                       """);
-    }
+    System.out.println("""
+           \nМЕНЮ:
+           1. добавить книгу
+           2. удалить книгу
+           3. найти книгу по названию
+           4. вывести количество книг на полке
+           5. вывести количество свободных мест
+           6. выход
+           """);
+}
 
     private static int selectMenu(Scanner sc) {
         int menuItem;
